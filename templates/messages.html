@@ -1,0 +1,128 @@
+{% extends "base_app.html" %}
+
+{% block title %}
+Messages | Dastkaar
+{% endblock %}
+
+{% block main %}
+
+{% set avatar = url_for('static', filename='images/placeholders/profile-placeholder.jpg') %}
+
+<div class="page-header">
+    <h1 class="text-h2">Messages</h1>
+    <p>Chat with buyers and translate conversations in real time.</p>
+</div>
+
+<div class="messages-layout">
+
+    <!-- Chat List -->
+    <aside class="chat-list">
+
+        <div class="chat-list-header">
+            <strong class="text-h4">Conversations</strong>
+            <div class="navbar-search chat-list-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" name="search" placeholder="Search conversations..." aria-label="Search conversations">
+            </div>
+        </div>
+
+        <div class="chat-list-items" id="chat-list-items">
+
+            {% for contact in contacts %}
+            <div class="chat-list-item {{ 'active' if contact == active_contact }}" data-contact="{{ contact }}">
+                <img class="chat-avatar" src="{{ avatar }}" alt="{{ contact }}">
+                <div class="chat-list-item-body">
+                    <div class="chat-list-item-top">
+                        <span class="chat-name">{{ contact }}</span>
+                        <span class="chat-time">{{ previews[contact].time }}</span>
+                    </div>
+                    <div class="chat-preview">{{ previews[contact].text }}</div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </aside>
+
+    <!-- Chat Window -->
+    <div class="chat-window">
+
+        <div class="chat-window-header">
+
+            <div class="chat-window-who">
+                <img class="chat-avatar" src="{{ avatar }}" alt="{{ active_contact }}">
+                <div>
+                    <div class="chat-name" id="chat-window-name">{{ active_contact }}</div>
+                    <div class="chat-status">Online</div>
+                </div>
+            </div>
+
+            <div class="chat-translate-controls">
+                <span class="badge badge-ai">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+                    AI Translation
+                </span>
+                <select class="select" aria-label="Translate to">
+                    <option value="en">English</option>
+                    <option value="ur">اردو</option>
+                    <option value="ks">کٲشُر</option>
+                </select>
+                <button type="button" class="btn btn-outline btn-sm translate-toggle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M9 2h1M22 22l-5-10-5 10M14 18h6"/></svg>
+                    Translate
+                </button>
+            </div>
+
+        </div>
+
+        <div class="chat-messages" id="chat-messages" data-active-contact="{{ active_contact }}">
+
+            {% for msg in messages %}
+            <div class="message-row {{ 'sent' if msg.sender == 'me' else 'received' }}">
+                {% if msg.sender != 'me' %}
+                <img class="chat-avatar" src="{{ avatar }}" alt="{{ active_contact }}">
+                {% endif %}
+                <div>
+                    <div class="message-bubble">{{ msg.text }}</div>
+                    {% if msg.translation %}
+                    <div class="translation-preview">
+                        <div class="translation-preview-label">
+                            <span class="badge badge-ai">AI Translated</span>
+                        </div>
+                        {{ msg.translation }}
+                    </div>
+                    {% endif %}
+                    <div class="message-meta">{{ msg.time }}</div>
+                </div>
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <h3>No Messages Yet</h3>
+                <p class="text-small">Send a message to start the conversation.</p>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="chat-typing-area">
+
+            <button type="button" class="icon-btn" aria-label="Attach file">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.4 11.5 12.6 20.3a4.5 4.5 0 0 1-6.4-6.4l8.8-8.8a3 3 0 0 1 4.2 4.2l-8.8 8.8a1.5 1.5 0 0 1-2.1-2.1l7.4-7.4"/></svg>
+            </button>
+
+            <input class="input" type="text" name="message" id="message-input" placeholder="Type your message..." aria-label="Type your message">
+
+            <button type="button" class="send-btn" id="send-btn" aria-label="Send message">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 18 9-18 9 4-9-4-9Z"/></svg>
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/messages.js') }}"></script>
+
+{% endblock %}

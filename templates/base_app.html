@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="app-layout">
+
+    {% include "components/sidebar.html" %}
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="app-content">
+
+        {% include "components/navbar.html" %}
+
+        <main class="app-main">
+
+            {% block main %}{% endblock %}
+
+        </main>
+
+        {% include "components/footer.html" %}
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,249 @@
+{% extends "base_app.html" %}
+
+{% block title %}
+Orders | Dastkaar
+{% endblock %}
+
+{% block main %}
+
+<div class="page-header">
+    <h1 class="text-h2">Orders</h1>
+    <p>Track and manage all your buyer orders.</p>
+</div>
+
+<!-- Toolbar -->
+<div class="orders-toolbar">
+
+    <div class="navbar-search marketplace-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" name="search" placeholder="Search by order ID or buyer..." aria-label="Search by order ID or buyer">
+    </div>
+
+    <div class="filter-pills">
+        <button type="button" class="filter-pill active">All</button>
+        <button type="button" class="filter-pill">Pending</button>
+        <button type="button" class="filter-pill">Processing</button>
+        <button type="button" class="filter-pill">Shipped</button>
+        <button type="button" class="filter-pill">Completed</button>
+        <button type="button" class="filter-pill">Cancelled</button>
+    </div>
+
+</div>
+
+<!-- Orders Table -->
+<div class="table-wrap">
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Order</th>
+                <th>Buyer</th>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>#DK-1042</td>
+                <td>Ahmed Textiles</td>
+                <td>Jul 10, 2026</td>
+                <td>2 items</td>
+                <td>$480</td>
+                <td><span class="badge badge-trusted-seller">Shipped</span></td>
+                <td><button type="button" class="btn btn-outline btn-sm" data-modal-open="modal-order-details">View</button></td>
+            </tr>
+
+            <tr>
+                <td>#DK-1043</td>
+                <td>Nordic Home Co.</td>
+                <td>Jul 9, 2026</td>
+                <td>1 item</td>
+                <td>$165</td>
+                <td><span class="badge badge-pending">Pending</span></td>
+                <td><button type="button" class="btn btn-outline btn-sm" data-modal-open="modal-order-details">View</button></td>
+            </tr>
+
+            <tr>
+                <td>#DK-1044</td>
+                <td>Al Noor Traders</td>
+                <td>Jul 8, 2026</td>
+                <td>3 items</td>
+                <td>$725</td>
+                <td><span class="badge badge-trusted-buyer">Processing</span></td>
+                <td><button type="button" class="btn btn-outline btn-sm" data-modal-open="modal-order-details">View</button></td>
+            </tr>
+
+            <tr>
+                <td>#DK-1039</td>
+                <td>Berlin Craft House</td>
+                <td>Jul 3, 2026</td>
+                <td>1 item</td>
+                <td>$620</td>
+                <td><span class="badge badge-verified">Completed</span></td>
+                <td><button type="button" class="btn btn-outline btn-sm" data-modal-open="modal-order-details">View</button></td>
+            </tr>
+
+            <tr>
+                <td>#DK-1035</td>
+                <td>Dubai Home Interiors</td>
+                <td>Jun 28, 2026</td>
+                <td>4 items</td>
+                <td>$1,240</td>
+                <td><span class="badge badge-verified">Completed</span></td>
+                <td><button type="button" class="btn btn-outline btn-sm" data-modal-open="modal-order-details">View</button></td>
+            </tr>
+
+            <tr>
+                <td>#DK-1031</td>
+                <td>Nordic Home Co.</td>
+                <td>Jun 22, 2026</td>
+                <td>1 item</td>
+                <td>$85</td>
+                <td><span class="badge badge-rejected">Cancelled</span></td>
+                <td><button type="button" class="btn btn-outline btn-sm" data-modal-open="modal-order-details">View</button></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+</div>
+
+<!-- Order Details Modal -->
+<div class="modal-overlay" id="modal-order-details">
+    <div class="modal" style="max-width:640px;">
+
+        <div class="modal-header">
+            <strong class="text-h4">Order #DK-1042</strong>
+            <button type="button" class="modal-close" data-modal-close aria-label="Close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <div class="modal-body">
+
+            <!-- Timeline -->
+            <div class="order-timeline">
+
+                <div class="timeline-step done">
+                    <div class="timeline-dot">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div class="timeline-label">Placed</div>
+                    <div class="timeline-date">Jul 10</div>
+                </div>
+
+                <div class="timeline-step done">
+                    <div class="timeline-dot">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div class="timeline-label">Confirmed</div>
+                    <div class="timeline-date">Jul 10</div>
+                </div>
+
+                <div class="timeline-step current">
+                    <div class="timeline-dot">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8Z"/><circle cx="5.5" cy="18.5" r="1.5"/><circle cx="18.5" cy="18.5" r="1.5"/></svg>
+                    </div>
+                    <div class="timeline-label">Shipped</div>
+                    <div class="timeline-date">Jul 12</div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-dot">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div class="timeline-label">Delivered</div>
+                    <div class="timeline-date">Est. Jul 16</div>
+                </div>
+
+            </div>
+
+            <!-- Buyer Information -->
+            <div class="modal-section-title">Buyer Information</div>
+            <div class="detail-grid" style="margin-bottom:24px;">
+
+                <div>
+                    <span class="text-caption">Buyer</span>
+                    <div>Ahmed Textiles</div>
+                </div>
+
+                <div>
+                    <span class="text-caption">Email</span>
+                    <div>procurement@ahmedtextiles.com</div>
+                </div>
+
+                <div>
+                    <span class="text-caption">Company</span>
+                    <div>Ahmed Textiles LLC</div>
+                </div>
+
+                <div>
+                    <span class="text-caption">Country</span>
+                    <div>United Arab Emirates</div>
+                </div>
+
+            </div>
+
+            <!-- Shipping Information -->
+            <div class="modal-section-title">Shipping Information</div>
+            <div class="detail-grid" style="margin-bottom:24px;">
+
+                <div>
+                    <span class="text-caption">Address</span>
+                    <div>Warehouse 12, Al Quoz Industrial Area, Dubai, UAE</div>
+                </div>
+
+                <div>
+                    <span class="text-caption">Shipping Method</span>
+                    <div>Air Freight &mdash; Express</div>
+                </div>
+
+                <div>
+                    <span class="text-caption">Tracking Number</span>
+                    <div>DK-AWB-88213045</div>
+                </div>
+
+                <div>
+                    <span class="text-caption">Estimated Delivery</span>
+                    <div>Jul 16, 2026</div>
+                </div>
+
+            </div>
+
+            <!-- Order Summary -->
+            <div class="modal-section-title">Order Summary</div>
+            <div class="order-summary-box">
+
+                <div class="order-line-item">
+                    <span>Handwoven Pashmina Shawl &times; 2</span>
+                    <span>$480</span>
+                </div>
+
+                <div class="order-line-item">
+                    <span>Shipping (Air Freight)</span>
+                    <span>$25</span>
+                </div>
+
+                <div class="order-summary-total">
+                    <span>Total</span>
+                    <span>$505</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" data-modal-close>Close</button>
+            <button type="button" class="btn btn-primary">Contact Buyer</button>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

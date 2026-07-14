@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+
+        {% block title %}
+        Dastkaar Kashmir
+        {% endblock %}
+
+    </title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <link
+        rel="icon"
+        href="{{ url_for('static', filename='images/logo/favicon.ico') }}"
+    >
+
+    <style>
+        @view-transition {
+            navigation: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="page-progress" id="page-progress"></div>
+
+    <div id="main-content" tabindex="-1">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script
+        src="{{ url_for('static', filename='js/app.js') }}"
+    ></script>
+
+</body>
+
+</html>

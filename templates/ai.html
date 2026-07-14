@@ -1,0 +1,199 @@
+{% extends "base_app.html" %}
+
+{% block title %}
+AI Features | Dastkaar
+{% endblock %}
+
+{% block main %}
+
+{% set avatar = url_for('static', filename='images/placeholders/profile-placeholder.jpg') %}
+{% set product_img = url_for('static', filename='images/placeholders/product-placeholder.jpg') %}
+
+<div class="page-header">
+    <h1 class="text-h2">AI Features</h1>
+    <p>Smart tools that help you sell faster and reach the right buyers.</p>
+</div>
+
+<!-- AI Assistant -->
+<div class="ai-assistant-card">
+
+    <div class="ai-assistant-top">
+        <div class="ai-assistant-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+        </div>
+        <div>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <strong class="text-h4">Dastkaar AI Assistant</strong>
+                <span class="badge badge-ai">AI Powered</span>
+            </div>
+            <p class="text-small" style="margin-top:4px;">Ask anything about your business, buyers, or products.</p>
+        </div>
+    </div>
+
+    <div class="ai-assistant-input">
+        <input id="aiQuestion" class="input" type="text" placeholder="Ask Dastkaar AI anything..." aria-label="Ask Dastkaar AI">
+        <button id="askAI" type="button" class="send-btn" aria-label="Send">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 18 9-18 9 4-9-4-9Z"/></svg>
+        </button>
+    </div>
+
+    <div id="aiResponse" class="ai-response" hidden></div>
+
+    <div class="ai-prompt-chips">
+        <button type="button" class="filter-pill">Which products are trending?</button>
+        <button type="button" class="filter-pill">Suggest a price for my new shawl</button>
+        <button type="button" class="filter-pill">Draft a reply to Nordic Home Co.</button>
+    </div>
+
+</div>
+
+<!-- Feature Grid -->
+<div class="ai-grid">
+
+    <!-- Buyer Recommendation -->
+    <div class="card ai-card">
+        <div class="card-header">
+            <strong>Buyer Recommendation</strong>
+            <span class="badge badge-ai">AI Powered</span>
+        </div>
+        <p class="text-small">Buyers most likely to purchase from you this month.</p>
+
+        <div class="ai-list" id="buyerList"></div>
+
+        <button class="btn btn-outline" style="width:100%;">View All Buyers</button>
+    </div>
+
+    <!-- Demand Prediction -->
+    <div class="card ai-card">
+        <div class="card-header">
+            <strong>Demand Prediction</strong>
+            <span class="badge badge-ai">AI Powered</span>
+        </div>
+        <p class="text-small">Projected demand for Pashmina products over the next 6 months.</p>
+
+        <div class="mini-bar-chart" id="demandChart"></div>
+        <div class="mini-bar-labels text-caption" id="demandLabels"></div>
+        <p class="text-caption" style="margin-top:8px;">* Predicted</p>
+    </div>
+
+    <!-- Product Recommendation -->
+    <div class="card ai-card">
+        <div class="card-header">
+            <strong>Product Recommendation</strong>
+            <span class="badge badge-ai">AI Powered</span>
+        </div>
+        <p class="text-small">Products your buyers are most likely to order next.</p>
+
+        <div class="ai-list" id="productList"></div>
+
+        <button class="btn btn-outline" style="width:100%;">View All Recommendations</button>
+    </div>
+
+    <!-- Product Quality Score
+    <div class="card ai-card" style="text-align:center;">
+        <div class="card-header" style="text-align:left;">
+            <strong>Product Quality Score</strong>
+            <span class="badge badge-ai">AI Powered</span>
+        </div>
+
+        <div class="score-ring">
+            <div class="score-ring-inner">
+                <div class="score-value" id="overallScore">92</div>
+                <div class="score-label">/ 100</div>
+            </div>
+        </div>
+
+        <div class="score-breakdown" style="text-align:left;">
+
+            <div>
+                <div class="score-breakdown-row">
+                    <span>Craftsmanship</span>
+                    <span id="craftValue">95%</span>
+                </div>
+                <div class="progress"><div class="progress-bar success" id="craftProgress" style="width:95%;"></div></div>
+            </div>
+
+            <div>
+                <div class="score-breakdown-row">
+                    <span>Material Quality</span>
+                    <span id="materialValue">90%</span>
+                </div>
+                <div class="progress"><div class="progress-bar success" id="materialProgress" style="width:90%;"></div></div>
+            </div>
+
+            <div>
+                <div class="score-breakdown-row">
+                    <span>Listing Consistency</span>
+                    <span id="listingValue">88%</span>
+                </div>
+                <div class="progress"><div class="progress-bar" id="listingProgress" style="width:88%;"></div></div>
+            </div>
+
+        </div>
+    </div> -->
+
+    <!-- AI Translation -->
+    <div class="card ai-card">
+
+    <div class="card-header">
+        <strong>AI Translation</strong>
+        <span class="badge badge-ai">AI Powered</span>
+    </div>
+
+    <p class="text-small">
+        Instantly translate product descriptions, buyer messages, and business conversations.
+    </p>
+
+    <textarea
+        id="translateText"
+        class="input"
+        rows="5"
+        placeholder="Type or paste text here..."
+        style="resize:none;margin-top:15px;">
+    </textarea>
+
+    <select
+        id="translateLanguage"
+        class="select"
+        style="margin-top:15px;">
+
+        <option value="English">English</option>
+        <option value="Hindi">Hindi</option>
+        <option value="Urdu">اردو</option>
+        <option value="Kashmiri">کٲشُر</option>
+
+    </select>
+
+    <button
+        id="translateBtn"
+        class="btn btn-primary"
+        style="width:100%;margin-top:15px;">
+
+        Translate Now
+
+    </button>
+
+    <div
+        id="translatedText"
+        class="card"
+        style="margin-top:15px;display:none;padding:15px;">
+    </div>
+
+</div>
+
+    <!-- Smart Suggestions -->
+    <div class="card ai-card">
+        <div class="card-header">
+            <strong>Smart Suggestions</strong>
+            <span class="badge badge-ai">AI Powered</span>
+        </div>
+        <p class="text-small">Quick wins to improve your visibility and sales.</p>
+
+        <div class="ai-list" id="suggestions"></div>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/ai.js') }}"></script>
+
+{% endblock %}

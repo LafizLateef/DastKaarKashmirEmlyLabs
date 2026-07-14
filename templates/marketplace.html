@@ -1,0 +1,129 @@
+{% extends "base_app.html" %}
+
+{% from "components/macros.html" import product_card, artisan_card %}
+
+{% block title %}
+Marketplace | Dastkaar
+{% endblock %}
+
+{% block main %}
+
+{% set product_img = url_for('static', filename='images/placeholders/product-placeholder.jpg') %}
+{% set profile_img = url_for('static', filename='images/placeholders/profile-placeholder.jpg') %}
+{% set detail_url = url_for('product_detail') %}
+
+<div class="page-header">
+    <h1 class="text-h2">Marketplace</h1>
+    <p>Discover verified Kashmiri artisans and their handcrafted products.</p>
+</div>
+
+<!-- Search + Filters -->
+<div class="marketplace-toolbar">
+
+    <div class="navbar-search marketplace-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" name="search" placeholder="Search products, artisans, categories..." aria-label="Search products, artisans, categories">
+    </div>
+
+    <div class="filter-group">
+        <span class="filter-label">Category</span>
+        <div class="filter-pills">
+            <button type="button" class="filter-pill active">All</button>
+            <button type="button" class="filter-pill">Carpets</button>
+            <button type="button" class="filter-pill">Pashmina</button>
+            <button type="button" class="filter-pill">Walnut Wood</button>
+            <button type="button" class="filter-pill">Copperware</button>
+            <button type="button" class="filter-pill">Papier M&acirc;ch&eacute;</button>
+        </div>
+    </div>
+
+    <div class="filter-group">
+        <span class="filter-label">Country</span>
+        <div class="filter-pills">
+            <button type="button" class="filter-pill active">All Countries</button>
+            <button type="button" class="filter-pill">USA</button>
+            <button type="button" class="filter-pill">UAE</button>
+            <button type="button" class="filter-pill">UK</button>
+            <button type="button" class="filter-pill">Germany</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- Featured Artisans -->
+<section class="marketplace-section">
+
+    <div class="section-header">
+        <h2 class="text-h3">Featured Artisans</h2>
+        <a href="#" class="section-link">View All</a>
+    </div>
+
+    <div class="artisan-row">
+        {{ artisan_card("Bashir Ahmad", "Pashmina Weaver", "Srinagar, Kashmir", profile_img) }}
+        {{ artisan_card("Rukhsana Bano", "Sozni Embroidery", "Anantnag, Kashmir", profile_img) }}
+        {{ artisan_card("Ghulam Nabi", "Walnut Wood Carving", "Budgam, Kashmir", profile_img) }}
+        {{ artisan_card("Farhana Jan", "Chain Stitch", "Baramulla, Kashmir", profile_img) }}
+        {{ artisan_card("Manzoor Ahmad", "Papier Mâché", "Srinagar, Kashmir", profile_img) }}
+    </div>
+
+</section>
+
+<!-- AI Recommended -->
+<section class="marketplace-section">
+
+    <div class="section-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <h2 class="text-h3">AI Recommended For You</h2>
+            <span class="badge badge-ai">AI Powered</span>
+        </div>
+        <a href="#" class="section-link">View All</a>
+    </div>
+
+    <div class="product-grid">
+        {{ product_card("Handwoven Pashmina Shawl", "Pashmina", 240, 4.9, 128, product_img, "AI Match", detail_url) }}
+        {{ product_card("Hand-Carved Walnut Box", "Walnut Wood", 85, 4.8, 64, product_img, "AI Match", detail_url) }}
+        {{ product_card("Sozni Embroidered Stole", "Pashmina", 165, 4.9, 91, product_img, "AI Match", detail_url) }}
+        {{ product_card("Kashmiri Silk Carpet", "Carpets", 620, 5.0, 47, product_img, "AI Match", detail_url) }}
+    </div>
+
+</section>
+
+<!-- Trending -->
+<section class="marketplace-section">
+
+    <div class="section-header">
+        <h2 class="text-h3">Trending Products</h2>
+        <a href="#" class="section-link">View All</a>
+    </div>
+
+    <div class="product-grid">
+        {{ product_card("Engraved Copper Samovar", "Copperware", 145, 4.7, 53, product_img, "Trending", detail_url) }}
+        {{ product_card("Papier Mâché Jewellery Box", "Papier Mâché", 38, 4.6, 72, product_img, "Trending", detail_url) }}
+        {{ product_card("Chain Stitch Cushion Cover", "Home Decor", 42, 4.8, 39, product_img, "Trending", detail_url) }}
+        {{ product_card("Willow Wicker Basket", "Willow Wicker", 29, 4.5, 26, product_img, "Trending", detail_url) }}
+    </div>
+
+</section>
+
+<!-- Featured Products -->
+<section class="marketplace-section">
+
+    <div class="section-header">
+        <h2 class="text-h3">Featured Products</h2>
+        <a href="#" class="section-link">View All</a>
+    </div>
+
+    <div class="product-grid">
+        {{ product_card("Merino Pashmina Shawl", "Pashmina", 195, 4.8, 84, product_img, "", detail_url) }}
+        {{ product_card("Namda Wool Rug", "Namda", 110, 4.6, 31, product_img, "", detail_url) }}
+        {{ product_card("Hand-Knotted Silk Carpet", "Carpets", 780, 4.9, 58, product_img, "New", detail_url) }}
+        {{ product_card("Walnut Wood Jewellery Box", "Walnut Wood", 68, 4.7, 45, product_img, "", detail_url) }}
+        {{ product_card("Kashmiri Saffron (5g)", "Saffron", 22, 4.9, 210, product_img, "Bestseller", detail_url) }}
+        {{ product_card("Dry Fruit Gift Box", "Dry Fruits", 34, 4.6, 67, product_img, "", detail_url) }}
+        {{ product_card("Chain Stitch Wall Art", "Home Decor", 56, 4.7, 22, product_img, "New", detail_url) }}
+        {{ product_card("Copper Engraved Tray", "Copperware", 74, 4.5, 18, product_img, "", detail_url) }}
+    </div>
+
+</section>
+
+{% endblock %}

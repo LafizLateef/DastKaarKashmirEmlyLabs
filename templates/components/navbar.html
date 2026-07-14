@@ -1,0 +1,47 @@
+<header class="navbar">
+
+    <button type="button" class="navbar-menu-btn" id="sidebar-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <div class="navbar-search">
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+
+        <input type="text" name="search" placeholder="Search orders, products, buyers..." aria-label="Search orders, products, buyers">
+
+    </div>
+
+    <div class="navbar-right">
+
+        <button type="button" class="navbar-icon-btn" aria-label="Notifications">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6"/><path d="M9.7 21a2 2 0 0 0 4.6 0"/></svg>
+
+            <span class="navbar-badge"></span>
+
+        </button>
+
+        <select class="select navbar-lang" name="language" aria-label="Language">
+
+            <option value="en">English</option>
+
+            <option value="ur">اردو</option>
+
+            <option value="ks">کٲشُر</option>
+
+        </select>
+
+        <div class="navbar-profile">
+
+            <img src="{{ url_for('static', filename='images/placeholders/profile-placeholder.jpg') }}" alt="" class="navbar-avatar">
+
+            <span>{{ user.name }}</span>
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+
+        </div>
+
+    </div>
+
+</header>

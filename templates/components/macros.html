@@ -1,0 +1,115 @@
+{% macro product_card(name, category, price, rating, reviews, image, tag='', href='#') %}
+<div class="product-card">
+
+    <div class="product-card-image">
+
+        <img src="{{ image }}" alt="{{ name }}">
+
+        {% if tag %}
+        <span class="product-tag">{{ tag }}</span>
+        {% endif %}
+
+        <button type="button" class="wishlist-btn" aria-label="Add to wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+        </button>
+
+    </div>
+
+    <div class="product-card-body">
+
+        <div class="product-category">{{ category }}</div>
+
+        <h4><a href="{{ href }}">{{ name }}</a></h4>
+
+        <div class="product-rating">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2-6.2 3.2 1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+            {{ rating }}
+            <span class="text-caption">({{ reviews }})</span>
+        </div>
+
+        <div class="product-card-footer">
+            <span class="product-price">${{ price }}</span>
+            <a href="{{ href }}" class="btn btn-outline btn-sm">Quick View</a>
+        </div>
+
+    </div>
+
+</div>
+{% endmacro %}
+
+{% macro artisan_card(name, craft, location, image, verified=true) %}
+<div class="artisan-card">
+
+    <img class="artisan-avatar" src="{{ image }}" alt="{{ name }}">
+
+    <h4>
+        {{ name }}
+        {% if verified %}
+        <svg class="artisan-verified" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.4-3.2 7.6-8 9-4.8-1.4-8-4.6-8-9V6l8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+        {% endif %}
+    </h4>
+
+    <p class="text-small">{{ craft }}</p>
+
+    <p class="text-caption">{{ location }}</p>
+
+</div>
+{% endmacro %}
+
+{% macro manage_product_card(id, name, category, price, image, stock_label, stock_class, stock=0, description='', edit_modal='modal-edit-product', delete_modal='modal-delete-product') %}
+<div class="product-card" data-product-card="{{ id }}">
+
+    <div class="product-card-image">
+
+        <img src="{{ image }}" alt="{{ name }}">
+
+        <span class="product-tag {{ stock_class }}">{{ stock_label }}</span>
+
+    </div>
+
+    <div class="product-card-body">
+
+        <div class="product-category">{{ category }}</div>
+
+        <h4>{{ name }}</h4>
+
+        <div class="product-card-footer">
+
+            <span class="product-price">${{ '%.2f'|format(price) }}</span>
+
+            <div class="card-actions">
+
+                <button
+                    type="button"
+                    class="icon-btn"
+                    data-modal-open="{{ edit_modal }}"
+                    data-product-id="{{ id }}"
+                    data-name="{{ name }}"
+                    data-category="{{ category }}"
+                    data-price="{{ price }}"
+                    data-stock="{{ stock }}"
+                    data-description="{{ description }}"
+                    data-image-url="{{ image }}"
+                    aria-label="Edit product"
+                >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                </button>
+
+                <button
+                    type="button"
+                    class="icon-btn danger"
+                    data-modal-open="{{ delete_modal }}"
+                    data-product-id="{{ id }}"
+                    aria-label="Delete product"
+                >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6"/></svg>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endmacro %}

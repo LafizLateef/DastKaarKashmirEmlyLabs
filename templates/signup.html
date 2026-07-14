@@ -1,0 +1,305 @@
+{% extends "base.html" %}
+
+{% block title %}
+Sign Up | Dastkaar
+{% endblock %}
+
+{% block content %}
+
+<div class="login-page">
+
+
+    <!-- LEFT SECTION -->
+
+    <section class="login-left">
+
+        <div class="overlay"></div>
+
+        <div class="chinar-pattern"></div>
+
+
+        <div class="hero-content">
+
+
+            <img
+                src="{{ url_for('static', filename='images/logo/logo_white.png') }}"
+                class="logo"
+                alt="Dastkaar Logo"
+            >
+
+
+            <h1>
+                Join Dastkaar Kashmir
+            </h1>
+
+
+            <p>
+                Create your account and connect Kashmiri artisans
+                with buyers from across India and around the world.
+            </p>
+
+
+
+            <div class="stats">
+
+
+                <div class="stat-card">
+
+                    <h2>650+</h2>
+                    <span>Verified Artisans</span>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <h2>35+</h2>
+                    <span>Countries</span>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <h2>18K+</h2>
+                    <span>Products</span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <!-- RIGHT SECTION -->
+
+
+    <section class="login-right">
+
+
+        <div class="bg-blob bg-blob-1"></div>
+
+        <div class="bg-blob bg-blob-2"></div>
+
+
+
+        <div class="login-card">
+
+
+            <h2>
+                Create Account
+            </h2>
+
+
+            <p class="subtitle">
+                Register as Buyer or Manufacturer
+            </p>
+
+
+
+            <form id="signupForm">
+
+
+                <div class="field">
+
+                    <label>
+                        Full Name
+                    </label>
+
+
+                    <input
+                        class="input"
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+
+
+
+                <div class="field">
+
+
+                    <label>
+                        Email Address
+                    </label>
+
+
+                    <input
+                        class="input"
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+
+
+
+                <div class="field">
+
+
+                    <label>
+                        Phone Number
+                    </label>
+
+
+                    <input
+                        class="input"
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter phone number"
+                        required
+                    >
+
+                </div>
+
+
+
+
+
+                <div class="field">
+
+
+                    <label>
+                        Password
+                    </label>
+
+
+                    <input
+                        class="input"
+                        type="password"
+                        id="password"
+                        placeholder="Create password"
+                        required
+                    >
+
+                </div>
+
+
+
+
+
+                <div class="field">
+
+
+                    <label>
+                        Confirm Password
+                    </label>
+
+
+                    <input
+                        class="input"
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm password"
+                        required
+                    >
+
+                </div>
+
+
+
+
+
+                <div class="field">
+
+
+                    <label>
+                        Register As
+                    </label>
+
+
+                    <select 
+                        class="select"
+                        id="role"
+                        required
+                    >
+
+                        <option value="">
+                            Select Role
+                        </option>
+
+
+                        <option value="manufacturer">
+                            Manufacturer
+                        </option>
+
+
+                        <option value="buyer">
+                            Buyer
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+
+                    Create Account
+
+                </button>
+
+
+
+            </form>
+
+
+
+
+            <div class="divider">
+                Already have an account?
+            </div>
+
+
+
+
+            <a 
+                href="/"
+                class="btn btn-secondary"
+            >
+
+                Login
+
+            </a>
+
+
+
+        </div>
+
+
+    </section>
+
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/signup.js') }}"></script>
+
+
+{% endblock %}

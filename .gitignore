@@ -1,0 +1,22 @@
+# Secrets
+Api.txt
+secret.key
+.env
+
+# User / runtime data
+users.json
+products.json
+messages.json
+translation_cache.json
+ai_cache.json
+Json/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editor / OS
+.vscode/
+.DS_Store

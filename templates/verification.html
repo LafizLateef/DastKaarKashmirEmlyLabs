@@ -1,0 +1,149 @@
+{% extends "base_app.html" %}
+
+{% block title %}
+Verification | Dastkaar
+{% endblock %}
+
+{% block main %}
+
+<div class="page-header">
+    <h1 class="text-h2">Verification</h1>
+    <p>Complete these steps to unlock full buyer trust and marketplace visibility.</p>
+</div>
+
+<!-- Verification Progress -->
+<div class="card" style="margin-bottom:28px;">
+
+    <div class="verify-progress-top">
+        <strong class="text-h4">Verification Progress</strong>
+        <span class="badge badge-pending">In Progress &middot; 2 of 4 Complete</span>
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar" style="width:50%;"></div>
+    </div>
+
+    <div class="verify-checklist">
+
+        <div class="verify-checklist-item">
+            <span class="verify-status-dot done">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            Company Registration
+        </div>
+
+        <div class="verify-checklist-item">
+            <span class="verify-status-dot done">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            Tax Registration
+        </div>
+
+        <div class="verify-checklist-item">
+            <span class="verify-status-dot pending">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            </span>
+            Business Licence
+        </div>
+
+        <div class="verify-checklist-item">
+            <span class="verify-status-dot todo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
+            </span>
+            Email Verification
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Verification Cards -->
+<div class="verify-grid">
+
+    <!-- Company Registration -->
+    <div class="card">
+
+        <div class="verify-card-header">
+            <div class="verify-card-icon done">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1M14 9h1M9 13h1M14 13h1M9 17h1M14 17h1"/></svg>
+            </div>
+            <div class="verify-card-title-row">
+                <strong>Company Registration</strong>
+                <span class="badge badge-verified">Verified</span>
+            </div>
+        </div>
+
+        <p class="text-small">Official proof of your company's legal registration.</p>
+
+        <div class="verify-meta">Document: registration-certificate.pdf &middot; Verified Jul 5, 2026</div>
+
+        <button type="button" class="btn btn-outline" style="width:100%;">View Certificate</button>
+
+    </div>
+
+    <!-- Tax Registration -->
+    <div class="card">
+
+        <div class="verify-card-header">
+            <div class="verify-card-icon done">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="verify-card-title-row">
+                <strong>Tax Registration</strong>
+                <span class="badge badge-verified">Verified</span>
+            </div>
+        </div>
+
+        <p class="text-small">Tax identification proof required for cross-border trade.</p>
+
+        <div class="verify-meta">Document: tax-registration.pdf &middot; Verified Jul 5, 2026</div>
+
+        <button type="button" class="btn btn-outline" style="width:100%;">View Certificate</button>
+
+    </div>
+
+    <!-- Business Licence -->
+    <div class="card">
+
+        <div class="verify-card-header">
+            <div class="verify-card-icon pending">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9Z"/></svg>
+            </div>
+            <div class="verify-card-title-row">
+                <strong>Business Licence</strong>
+                <span class="badge badge-pending">Pending</span>
+            </div>
+        </div>
+
+        <p class="text-small">Valid trade or business operating licence.</p>
+
+        <div class="verify-meta">Submitted Jul 10, 2026 &middot; Under review, 2&ndash;3 business days</div>
+
+        <button type="button" class="btn btn-outline" style="width:100%;">View Submission</button>
+
+    </div>
+
+    <!-- Email Verification -->
+    <div class="card">
+
+        <div class="verify-card-header">
+            <div class="verify-card-icon todo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </div>
+            <div class="verify-card-title-row">
+                <strong>Email Verification</strong>
+                <span class="tag">Not Verified</span>
+            </div>
+        </div>
+
+        <p class="text-small">Confirm ownership of your business email address.</p>
+
+        <div class="verify-meta">bashir@pashminahouse.com</div>
+
+        <button type="button" class="btn btn-primary" style="width:100%;">Resend Verification Email</button>
+
+    </div>
+
+</div>
+
+{% endblock %}

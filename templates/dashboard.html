@@ -1,0 +1,229 @@
+{% extends "base_app.html" %}
+
+{% block title %}
+Dashboard | Dastkaar
+{% endblock %}
+
+{% block main %}
+
+<div class="page-header">
+    <h1 class="text-h2">Welcome back, {{ user.name }}</h1>
+    <p>Here's what's happening with your business today.</p>
+</div>
+
+<!-- Overview Cards -->
+<div class="overview-grid">
+
+    <div class="card overview-card">
+        <div class="overview-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v4h6V3"/><path d="M9 12h6M9 16h6"/></svg>
+        </div>
+        <div>
+            <div class="overview-value">248</div>
+            <div class="overview-label">Total Orders</div>
+            <span class="overview-trend up">&#8593; 12% this month</span>
+        </div>
+    </div>
+
+    <div class="card overview-card">
+        <div class="overview-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <div>
+            <div class="overview-value">16</div>
+            <div class="overview-label">Pending Orders</div>
+            <span class="overview-trend down">&#8595; 3% this month</span>
+        </div>
+    </div>
+
+    <div class="card overview-card">
+        <div class="overview-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div>
+            <div class="overview-value">$18,420</div>
+            <div class="overview-label">Revenue</div>
+            <span class="overview-trend up">&#8593; 8% this month</span>
+        </div>
+    </div>
+
+    <div class="card overview-card">
+        <div class="overview-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div>
+            <div class="overview-value">3,140</div>
+            <div class="overview-label">Profile Views</div>
+            <span class="overview-trend up">&#8593; 21% this month</span>
+        </div>
+    </div>
+
+    <div class="card overview-card">
+        <div class="overview-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        </div>
+        <div>
+            <div class="overview-value">9</div>
+            <div class="overview-label">Buyer Requests</div>
+            <span class="overview-trend up">&#8593; 2 new</span>
+        </div>
+    </div>
+
+    <div class="card overview-card">
+        <div class="overview-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"/></svg>
+        </div>
+        <div>
+            <div class="overview-value">27</div>
+            <div class="overview-label">Messages</div>
+            <span class="overview-trend up">&#8593; 5 unread</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- Widgets -->
+<div class="widgets-grid">
+
+    <div class="widget-stack">
+
+        <!-- AI Market Insights -->
+        <div class="card ai-card">
+            <div class="card-header">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+                    <strong>AI Market Insights</strong>
+                </div>
+                <span class="badge badge-ai">AI Powered</span>
+            </div>
+            <p class="text-small">Based on recent buyer activity in your category.</p>
+            <ul class="ai-insight-list" id="aiInsights">
+                <li>
+                    Pashmina shawl demand in Europe
+                    <span class="badge badge-verified">&#8593; 18%</span>
+                </li>
+                <li>
+                    Walnut wood carvings trending in UAE
+                    <span class="badge badge-verified">&#8593; 11%</span>
+                </li>
+                <li>
+                    Carpet inquiries slowing in US
+                    <span class="badge badge-pending">&#8595; 4%</span>
+                </li>
+            </ul>
+            <button class="btn btn-outline" id="refreshInsights">View Full Report</button>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="card">
+            <div class="card-header">
+                <strong>Recent Activity</strong>
+            </div>
+            <ul class="activity-list">
+                <li class="activity-item">
+                    <div class="activity-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v4h6V3"/></svg>
+                    </div>
+                    <div>
+                        <div>New order from <strong>Ahmed Textiles</strong></div>
+                        <div class="activity-time">2 hours ago</div>
+                    </div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"/></svg>
+                    </div>
+                    <div>
+                        <div>New message from <strong>Nordic Home Co.</strong></div>
+                        <div class="activity-time">5 hours ago</div>
+                    </div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.4-3.2 7.6-8 9-4.8-1.4-8-4.6-8-9V6l8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <div>
+                        <div>Your profile was verified</div>
+                        <div class="activity-time">Yesterday</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="widget-stack">
+
+        <!-- Profile Completion -->
+        <div class="card">
+            <div class="card-header">
+                <strong>Profile Completion</strong>
+                <span class="text-small">72%</span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar" style="width:72%;"></div>
+            </div>
+            <p class="text-small" style="margin-top:14px;">Complete your profile to increase visibility to buyers.</p>
+            <button class="btn btn-primary" style="width:100%; margin-top:16px;">Complete Profile</button>
+        </div>
+
+        <!-- Upcoming Tasks -->
+        <div class="card">
+            <div class="card-header">
+                <strong>Upcoming Tasks</strong>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        Upload business licence
+                    </label>
+                    <span class="tag">Due Tomorrow</span>
+                </li>
+                <li class="task-item">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        Reply to 3 buyer requests
+                    </label>
+                    <span class="tag">Due Today</span>
+                </li>
+                <li class="task-item">
+                    <label class="checkbox">
+                        <input type="checkbox" checked>
+                        Add product photos
+                    </label>
+                    <span class="tag">Completed</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="card">
+            <div class="card-header">
+                <strong>Quick Actions</strong>
+            </div>
+            <div class="quick-actions">
+                <a href="/products" class="quick-action">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                    Add Product
+                </a>
+                <a href="/orders" class="quick-action">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v4h6V3"/></svg>
+                    View Orders
+                </a>
+                <a href="/messages" class="quick-action">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"/></svg>
+                    Message Buyer
+                </a>
+                <a href="/analytics" class="quick-action">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12.5" y="8" width="3" height="10"/><rect x="18" y="5" width="3" height="13"/></svg>
+                    View Analytics
+                </a>
+            </div>
+        </div>
+
+    </div>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</div>
+
+{% endblock %}

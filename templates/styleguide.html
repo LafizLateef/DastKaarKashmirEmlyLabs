@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+
+{% block title %}
+Style Guide | Dastkaar
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="padding:48px 0;">
+
+    <h1 class="text-h1" style="margin-bottom:8px;">Dastkaar Kashmir — Design System</h1>
+    <p class="text-body" style="color:var(--text-light); margin-bottom:48px;">Internal reference for global components. Not part of the public site.</p>
+
+    <!-- Colors -->
+    <section style="margin-bottom:64px;">
+        <h2 class="text-h2" style="margin-bottom:20px;">Colors</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px;">
+            <div class="card"><div style="height:60px; border-radius:12px; background:var(--primary); margin-bottom:12px;"></div>Primary<br><span class="text-caption">#5C3B28</span></div>
+            <div class="card"><div style="height:60px; border-radius:12px; background:var(--secondary); margin-bottom:12px;"></div>Secondary<br><span class="text-caption">#D9A441</span></div>
+            <div class="card"><div style="height:60px; border-radius:12px; background:var(--accent); margin-bottom:12px;"></div>Accent<br><span class="text-caption">#2F6F52</span></div>
+            <div class="card"><div style="height:60px; border-radius:12px; background:var(--danger); margin-bottom:12px;"></div>Danger<br><span class="text-caption">#A62C2C</span></div>
+            <div class="card"><div style="height:60px; border-radius:12px; background:var(--background); border:1px solid var(--border); margin-bottom:12px;"></div>Background<br><span class="text-caption">#F8F5F0</span></div>
+        </div>
+    </section>
+
+    <!-- Typography -->
+    <section style="margin-bottom:64px;">
+        <h2 class="text-h2" style="margin-bottom:20px;">Typography</h2>
+        <div class="card">
+            <div class="text-hero">Hero 56px</div>
+            <div class="text-h1">Heading 1 — 42px</div>
+            <div class="text-h2">Heading 2 — 32px</div>
+            <div class="text-h3">Heading 3 — 24px</div>
+            <div class="text-h4">Heading 4 — 20px</div>
+            <p class="text-body">Body text — 16px. The quick brown fox jumps over the lazy dog.</p>
+            <p class="text-small">Small text — 14px</p>
+            <p class="text-caption">Caption — 12px</p>
+        </div>
+    </section>
+
+    <!-- Buttons -->
+    <section style="margin-bottom:64px;">
+        <h2 class="text-h2" style="margin-bottom:20px;">Buttons</h2>
+        <div class="card" style="display:flex; flex-wrap:wrap; gap:16px;">
+            <button class="btn btn-primary">Primary Button</button>
+            <button class="btn btn-secondary">Secondary Button</button>
+            <button class="btn btn-outline">Outline Button</button>
+            <button class="btn btn-success">Success</button>
+            <button class="btn btn-danger">Danger</button>
+            <button class="btn btn-primary" disabled>Disabled</button>
+        </div>
+    </section>
+
+    <!-- Form Fields -->
+    <section style="margin-bottom:64px;">
+        <h2 class="text-h2" style="margin-bottom:20px;">Form Fields</h2>
+        <div class="card" style="max-width:420px; display:flex; flex-direction:column; gap:8px;">
+            <div class="field">
+                <label for="sg-email">Email</label>
+                <input class="input" type="email" id="sg-email" name="email" placeholder="you@example.com">
+            </div>
+            <div class="field">
+                <label for="sg-country">Country</label>
+                <select class="select" id="sg-country" name="country">
+                    <option>Select a country</option>
+                    <option>Pakistan</option>
+                    <option>United States</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="sg-message">Message</label>
+                <textarea class="textarea" id="sg-message" name="message" placeholder="Write something..."></textarea>
+            </div>
+            <label class="checkbox">
+                <input type="checkbox" name="remember">
+                Remember me
+            </label>
+        </div>
+    </section>
+
+    <!-- Cards -->
+    <section style="margin-bottom:64px;">
+        <h2 class="text-h2" style="margin-bottom:20px;">Cards</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px;">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Standard Card</strong>
+                    <span class="badge badge-verified">Verified</span>
+                </div>
+                <p class="text-small">20px radius, soft shadow, 24px padding.</p>
+            </div>
+            <div class="card card-lg">
+                <div class="card-header">
+                    <strong>Large Card</strong>
+                    <span class="tag">Featured</span>
+                </div>
+                <p class="text-small">24px radius, 32px padding.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tags & Badges -->
+    <section style="margin-bottom:64px;">
+        <h2 class="text-h2" style="margin-bottom:20px;">Tags &amp; Badges</h2>
+        <div class="card" style="display:flex; flex-wrap:wrap; gap:12px;">
+            <span class="tag">Pashmina</span>
+            <span class="tag">Handmade</span>
+            <span class="badge badge-verified">Verified</span>
+            <span class="badge badge-trusted-buyer">Trusted Buyer</span>
+            <span class="badge badge-trusted-seller">Trusted Seller</span>
+            <span class="badge badge-pending">Pending</span>
+            <span class="badge badge-rejected">Rejected</span>
+        </div>
+    </section>
+
+    <!-- Alerts -->
+    <section style="margin-bottom:64px;">
+        <h2 class="text-h2" style="margin-bottom:20px;">Alerts</h2>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="alert alert-success">Your order has been confirmed.</div>
+            <div class="alert alert-danger">Something went wrong. Please try again.</div>
+            <div class="alert alert-warning">Your verification is still pending.</div>
+            <div class="alert alert-info">New AI recommendations are ready.</div>
+        </div>
+    </section>
+
+    <!-- Progress Bars -->
+    <section style="margin-bottom:64px;">
+        <h2 class="text-h2" style="margin-bottom:20px;">Progress Bars</h2>
+        <div class="card" style="display:flex; flex-direction:column; gap:20px;">
+            <div class="progress"><div class="progress-bar" style="width:70%;"></div></div>
+            <div class="progress"><div class="progress-bar success" style="width:100%;"></div></div>
+            <div class="progress"><div class="progress-bar danger" style="width:30%;"></div></div>
+        </div>
+    </section>
+
+    <!-- Table -->
+    <section style="margin-bottom:64px;">
+        <h2 class="text-h2" style="margin-bottom:20px;">Tables</h2>
+        <div class="table-wrap">
+            <table class="table">
+                <thead>
+                    <tr><th>Order</th><th>Buyer</th><th>Status</th><th>Amount</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>#1042</td><td>Ahmed Textiles</td><td><span class="badge badge-verified">Completed</span></td><td>$1,240</td></tr>
+                    <tr><td>#1043</td><td>Nordic Home Co.</td><td><span class="badge badge-pending">Pending</span></td><td>$860</td></tr>
+                    <tr><td>#1044</td><td>Al Noor Traders</td><td><span class="badge badge-rejected">Rejected</span></td><td>$430</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Loaders & Empty State -->
+    <section style="margin-bottom:64px;">
+        <h2 class="text-h2" style="margin-bottom:20px;">Loaders &amp; Empty States</h2>
+        <div class="card" style="display:flex; align-items:center; gap:24px; margin-bottom:20px;">
+            <div class="loader"></div>
+            <div class="loader-sm"></div>
+        </div>
+        <div class="card empty-state">
+            <h3>No Orders Yet</h3>
+            <p class="text-small">Orders from buyers will appear here once received.</p>
+        </div>
+    </section>
+
+    <!-- Loading States -->
+    <section style="margin-bottom:64px;">
+        <h2 class="text-h2" style="margin-bottom:20px;">Loading States</h2>
+        <div class="card" style="display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-bottom:20px;">
+            <button class="btn btn-primary is-loading">Save Changes</button>
+            <button class="btn btn-outline is-loading">Cancel</button>
+        </div>
+        <div class="card" style="display:flex; flex-direction:column; gap:12px;">
+            <div class="skeleton" style="height:20px; width:60%;">&nbsp;</div>
+            <div class="skeleton" style="height:20px; width:90%;">&nbsp;</div>
+            <div class="skeleton" style="height:80px; width:100%;">&nbsp;</div>
+        </div>
+    </section>
+
+    <!-- Motion & Interaction Notes -->
+    <section style="margin-bottom:64px;">
+        <h2 class="text-h2" style="margin-bottom:20px;">Motion &amp; Interaction</h2>
+        <div class="card">
+            <ul style="padding-left:20px; display:flex; flex-direction:column; gap:8px;" class="text-small">
+                <li>Cards lift their shadow on hover (<code>--shadow-hover</code>); interactive cards (products, artisans, roles) also scale down slightly on press.</li>
+                <li>All buttons and clickable rows scale to <code>.97</code> on <code>:active</code> for tactile feedback.</li>
+                <li>Page content fades/slides in on load; overview and grid cards stagger in sequentially.</li>
+                <li>A top progress bar animates on internal navigation clicks and cross-fades pages automatically in browsers that support the View Transitions API.</li>
+                <li>Everything above respects <code>prefers-reduced-motion</code> and collapses to instant, non-animated state.</li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+{% endblock %}

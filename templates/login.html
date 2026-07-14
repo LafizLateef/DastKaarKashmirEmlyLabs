@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login | Dastkaar
+{% endblock %}
+
+{% block content %}
+
+<div class="login-page">
+
+    <!-- Left Side -->
+    <section class="login-left">
+
+        <div class="overlay"></div>
+
+        <div class="chinar-pattern"></div>
+
+        <div class="hero-content">
+
+            <img
+                src="{{ url_for('static', filename='images/logo/logo_white.png') }}"
+                alt="Dastkaar Logo"
+                class="logo"
+            >
+
+            <h1>
+                Crafted in Kashmir,
+                <br>
+                Connected to the World.
+            </h1>
+
+            <p>
+                Empowering Kashmiri artisans, carpet weavers,
+                pashmina makers and local businesses through
+                AI-powered global connections.
+            </p>
+
+            <div class="stats">
+
+                <div class="stat-card">
+                    <h2>650+</h2>
+                    <span>Verified Artisans</span>
+                </div>
+
+                <div class="stat-card">
+                    <h2>35+</h2>
+                    <span>Countries</span>
+                </div>
+
+                <div class="stat-card">
+                    <h2>18K+</h2>
+                    <span>Products</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Right Side -->
+    <section class="login-right">
+
+        <div class="bg-blob bg-blob-1"></div>
+
+        <div class="bg-blob bg-blob-2"></div>
+
+        <div class="login-card">
+
+            <h2>Welcome Back</h2>
+
+            <p class="subtitle">
+                Login to continue your journey.
+            </p>
+
+            <form id="loginForm">
+
+                <div class="field">
+
+                    <label for="login-email">Email</label>
+
+                    <input
+                        class="input"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+                <div class="field">
+
+                    <label for="login-password">Password</label>
+
+                    <div class="password-field">
+
+                        <input
+                            class="input"
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            data-target="password"
+                            aria-label="Show password"
+                        >
+
+                            <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+
+                            <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.4 21.4 0 0 1 5.06-6.06M9.9 4.24A10.4 10.4 0 0 1 12 5c7 0 11 7 11 7a21.4 21.4 0 0 1-2.68 3.68M14.12 14.12a3 3 0 1 1-4.24-4.24"/><path d="M1 1l22 22"/></svg>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="login-language">Language</label>
+
+                    <select class="select" id="login-language" name="language">
+
+                        <option value="en">English</option>
+
+                        <option value="ur">اردو</option>
+
+                        <option value="ks">کٲشُر</option>
+
+                    </select>
+
+                </div>
+
+                <div class="remember">
+
+                    <label class="checkbox">
+
+                        <input type="checkbox" name="remember">
+
+                        Remember Me
+
+                    </label>
+
+                    <a href="#">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+                <button
+                    class="btn btn-primary"
+                    type="submit"
+                    style="margin-top:8px;"
+                >
+
+                    Login
+
+                </button>
+
+            </form>
+
+            <div class="divider">
+                OR
+            </div>
+
+            <a
+                href="{{ url_for('signup_page') }}"
+                class="btn btn-secondary"
+                style="width:100%;"
+            >
+
+                Create an Account
+
+            </a>
+
+        </div>
+
+    </section>
+
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+</div>
+
+{% endblock %}
